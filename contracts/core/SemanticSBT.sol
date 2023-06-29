@@ -35,10 +35,6 @@ contract SemanticSBT is Ownable, Initializable, ERC165, ERC721Enumerable, ISeman
     SPO[] internal _tokens;
 
 
-    mapping(uint256 => address) private _tokenApprovals;
-
-    mapping(address => mapping(address => bool)) private _operatorApprovals;
-
     mapping(address => bool) internal _minters;
 
     bool private _transferable;

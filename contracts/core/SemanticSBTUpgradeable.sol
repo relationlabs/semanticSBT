@@ -36,10 +36,6 @@ contract SemanticSBTUpgradeable is Initializable, OwnableUpgradeable, ERC165Upgr
 
     uint256 private _burnCount;
 
-    mapping(uint256 => address) private _tokenApprovals;
-
-    mapping(address => mapping(address => bool)) private _operatorApprovals;
-
     mapping(address => bool) internal _minters;
 
     bool private _transferable;

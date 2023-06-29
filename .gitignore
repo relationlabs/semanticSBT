@@ -12,3 +12,8 @@ typechain-types
 cache
 *artifacts
 *.deps
+
+# brownie
+build
+.pytest_cache
+metadata/network_to_cid.json

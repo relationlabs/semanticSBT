@@ -1,15 +1,12 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-ethers");
 require('@openzeppelin/hardhat-upgrades');
+require('hardhat-contract-sizer');
+require('path');
+const dotenv = require('dotenv');
 
-// Replace "INFURA PROJECT ID" with your INFURA project id
-// Go to https://infura.io/, sign up, create a new App in its dashboard, and replace "KEY" with its key
-const INFURA_PROJECT_ID = "INFURA INFURA PROJECT ID";
+dotenv.config({ path: './.env' });
 
-// Replace "PRIVATE KEY" with your account private key
-// To export your private key from Metamask, open Metamask and go to Account Details > Export Private Key
-// Be aware of NEVER putting real Ether into testing accounts
-const PRIVATE_KEY = "PRIVATE KEY";
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -19,17 +16,83 @@ module.exports = {
       optimizer: {
         enabled: true,
         runs: 1,
+        details: {
+          yul: true
+        }
       },
       viaIR: true,
     },
 
   },
+  mocha: {
+    timeout: 100000000
+  },
+  contractSizer: {
+    alphaSort: true,
+    runOnCompile: true,
+    disambiguatePaths: false,
+  },
   networks: {
+    ethereum: {
+      url: `https://eth.llamarpc.com`,
+      accounts: [
+        process.env.ETH_PRIVATE_KEY
+      ]
+    },
+    polygon: {
+      url: `https://polygon-rpc.com`,
+      accounts: [
+        process.env.POLYGON_PRIVATE_KEY
+      ]
+    },
+    goerli: {
+      url: `https://goerli.infura.io/v3/${process.env.WEB3_INFURA_PROJECT_ID}`,
+      accounts: [
+        process.env.GOERLI_PRIVATE_KEY
+      ]
+    },
+    mumbai: {
+      url: `https://polygon-mumbai.infura.io/v3/${process.env.WEB3_INFURA_PROJECT_ID}`,
+      accounts: [
+        process.env.MUMBAI_PRIVATE_KEY
+      ]
+    },
+    bsc_testnet: {
+      url: `https://endpoints.omniatech.io/v1/bsc/testnet/public`,
+      accounts: [
+        process.env.BSC_TEST_PRIVATE_KEY
+      ]
+    }
 
   },
   etherscan: {
-    // Your API key for Etherscan
-    // Obtain one at https://etherscan.io/
-    apiKey: "<YOUR_ETHERSCAN_API_KEY>",
+
+    apiKey: process.env.POLYGONSCAN_TOKEN,
+    customChains: [
+      {
+        network: "goerli",
+        chainId: 5,
+        urls: {
+          apiURL: "http://api-goerli.etherscan.io/api",
+          browserURL: "https://goerli.etherscan.io/"
+        }
+      },
+      {
+        network: "etherum",
+        chainId: 1,
+        urls: {
+          apiURL: "https:/api.etherscan.io/api",
+          browserURL: "https://etherscan.io/"
+        }
+      },
+      {
+        network: "bsc_testnet",
+        chainId: 97,
+        urls: {
+          apiURL: "https:/api-testnet.bscscan.com/api",
+          browserURL: "https://bscscan.com/"
+        }
+      }
+    ]
   },
 };

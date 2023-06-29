@@ -9,7 +9,7 @@ import {StringUtils} from "./StringUtils.sol";
 
 
 library NameServiceLogic {
-    using StringUtils for *;
+    using StringUtils for string;
     using StringsUpgradeable for uint256;
     using StringsUpgradeable for address;
     using ECDSA for bytes;

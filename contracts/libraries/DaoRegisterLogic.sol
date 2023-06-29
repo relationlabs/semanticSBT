@@ -19,7 +19,7 @@ library DaoRegisterLogic {
         bytes memory code = type(BeaconProxy).creationCode;
         bytes memory data = _getEncodeWithSelector(verifyContract, owner, minter, name, baseURI);
         bytes memory bytecode = abi.encodePacked(code, abi.encode(beaconAddress, data));
-        bytes32 salt = keccak256(abi.encodePacked(owner, minter));
+        bytes32 salt = keccak256(abi.encodePacked(owner, minter,name,block.number));
         assembly {
             daoContract := create2(0, add(bytecode, 32), mload(bytecode), salt)
         }

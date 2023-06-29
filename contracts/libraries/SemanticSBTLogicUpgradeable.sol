@@ -231,14 +231,14 @@ library SemanticSBTLogicUpgradeable {
         return string.concat(p, BLANK_SPACE, o);
     }
 
-    function buildAddressRDF(uint256 oIndex, string storage name) internal view returns (string memory){
+    function buildAddressRDF(uint256 oIndex, string storage name) internal pure returns (string memory){
         string memory p = string.concat(PROPERTY_PREFIX, name);
         string memory o = string.concat(ENTITY_PREFIX, SOUL_CLASS_NAME, CONCATENATION_CHARACTER, address(uint160(oIndex)).toHexString());
         return string.concat(p, BLANK_SPACE, o);
     }
 
 
-    function buildSubjectRDF(string storage _className, string storage name, string storage value) internal view returns (string memory){
+    function buildSubjectRDF(string storage _className, string storage name, string storage value) internal pure returns (string memory){
         string memory p = string.concat(PROPERTY_PREFIX, name);
         string memory o = string.concat(ENTITY_PREFIX, _className, CONCATENATION_CHARACTER, value);
         return string.concat(p, BLANK_SPACE, o);
