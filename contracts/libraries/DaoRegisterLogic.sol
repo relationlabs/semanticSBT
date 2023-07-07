@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.12;
 
+import "@openzeppelin/contracts/utils/Create2.sol";
 import {IDao} from "../interfaces/social/IDao.sol";
 import {BeaconProxy} from "../upgrade/BeaconProxy.sol";
 import {Predicate, FieldType} from "../core/SemanticBaseStruct.sol";
@@ -19,11 +20,8 @@ library DaoRegisterLogic {
         bytes memory code = type(BeaconProxy).creationCode;
         bytes memory data = _getEncodeWithSelector(verifyContract, owner, minter, name, baseURI);
         bytes memory bytecode = abi.encodePacked(code, abi.encode(beaconAddress, data));
-        bytes32 salt = keccak256(abi.encodePacked(owner, minter,name,block.number));
-        assembly {
-            daoContract := create2(0, add(bytecode, 32), mload(bytecode), salt)
-        }
-        return daoContract;
+        bytes32 salt = keccak256(abi.encodePacked(owner, minter, name, block.number));
+        return Create2.deploy(0, salt, bytecode);
     }
 
 

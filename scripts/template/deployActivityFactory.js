@@ -30,8 +30,9 @@ async function main() {
 
     await (await activityFactory.setActivityImpl(activity.address)).wait();
 
-    const nonce = await activityFactory.nonce(owner.address);
+    //Test
     await (await activityFactory.createActivity("my-activity","MAC","","myActivity")).wait()
+    const nonce = await activityFactory.nonce(owner.address);
     const address = await activityFactory.addressOf(owner.address,nonce);
     console.log(address)
 

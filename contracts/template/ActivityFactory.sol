@@ -30,7 +30,7 @@ contract ActivityFactory {
     }
 
     function createActivity(string calldata contractName, string calldata symbol,string calldata baseURI, string calldata activityName) external returns(address) {
-        uint256 index = nonce[msg.sender]++;
+        uint256 index = ++nonce[msg.sender];
         address activity = Clones.clone(activityImpl);
 
         _init(activity, msg.sender, contractName, symbol, baseURI, activityName);

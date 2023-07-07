@@ -2,18 +2,15 @@
 
 pragma solidity ^0.8.12;
 
-//import "@openzeppelin/contracts/utils/Strings.sol";
-//import "@openzeppelin/contracts/proxy/utils/Initializable.sol";
-//import "@openzeppelin/contracts/access/AccessControl.sol";
-//import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
+import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 
 
 import "../interfaces/social/IActivity.sol";
 import "../core/SemanticSBTUpgradeable.sol";
 import "../core/SemanticBaseStruct.sol";
 
-contract Activity is IActivity, SemanticSBTUpgradeable {
+contract Activity is IActivity, SemanticSBTUpgradeable, PausableUpgradeable {
     using StringsUpgradeable for uint256;
     using StringsUpgradeable for address;
 
@@ -46,6 +43,15 @@ contract Activity is IActivity, SemanticSBTUpgradeable {
         _pIndex = 1;
         _oIndex = 1;
         super.initialize(minter, name_, symbol_, baseURI_, schemaURI_, classes_, predicates_);
+    }
+
+
+    function pause() external onlyOwner {
+        _pause();
+    }
+
+    function unpause() external onlyOwner {
+        _unpause();
     }
 
     function duplicatable() public view returns (bool) {
@@ -94,7 +100,7 @@ contract Activity is IActivity, SemanticSBTUpgradeable {
     }
 
 
-    function mint() external {
+    function mint() external whenNotPaused {
         require(_freeMintable || whiteList[msg.sender], "Activity: permission denied");
         require(_duplicatable || !_mintedSPO[msg.sender][_pIndex][_oIndex], "Activity: already minted");
         _mintedSPO[msg.sender][_pIndex][_oIndex] = true;
