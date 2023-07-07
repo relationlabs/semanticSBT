@@ -1,30 +1,24 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.12;
 
-import "@openzeppelin/contracts/utils/Strings.sol";
-import "@openzeppelin/contracts/proxy/utils/Initializable.sol";
-import "@openzeppelin/contracts/access/AccessControl.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
+import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 
 
-import "../core/SemanticSBT.sol";
+import "../interfaces/social/IActivity.sol";
+import "../core/SemanticSBTUpgradeable.sol";
 import "../core/SemanticBaseStruct.sol";
 
-contract Activity is Ownable, Initializable, AccessControl {
-    using Strings for uint256;
-    using Strings for address;
+contract Activity is IActivity, SemanticSBTUpgradeable, PausableUpgradeable {
+    using StringsUpgradeable for uint256;
+    using StringsUpgradeable for address;
 
 
-    SemanticSBT _semanticSBT;
-    bytes32 constant MINT_ROLE = 0x0000000000000000000000000000000000000000000000000000000000000001;
-
-
-    mapping(address => bool) public whiteList;
-    address[] _whiteLists;
-
-    uint256 private _pIndex;
-    uint256 private _oIndex;
+    uint256 _soulCIndex;
+    uint256 _activityCIndex;
+    uint256 _pIndex;
+    uint256 _oIndex;
 
 
     mapping(address => mapping(uint256 => mapping(uint256 => bool)))  _mintedSPO;
@@ -32,19 +26,32 @@ contract Activity is Ownable, Initializable, AccessControl {
     bool private _duplicatable;
     bool private _freeMintable;
 
-    function initialize(
-        address owner_,
-        address semanticSBT_,
-        string memory predicate,
-        string memory subjectValue,
-        string memory className
-    ) public initializer onlyOwner {
-        _grantRole(DEFAULT_ADMIN_ROLE, owner_);
-        _grantRole(MINT_ROLE, owner_);
+    mapping(address => bool) public whiteList;
+    address[] _whiteLists;
 
-        _semanticSBT = SemanticSBT(semanticSBT_);
-        _pIndex = _semanticSBT.predicateIndex(predicate);
-        _oIndex = _semanticSBT.addSubject(subjectValue, className);
+    function initialize(
+        address minter,
+        string memory name_,
+        string memory symbol_,
+        string memory baseURI_,
+        string memory schemaURI_,
+        string[] memory classes_,
+        Predicate[] memory predicates_
+    ) public override {
+        _soulCIndex = 1;
+        _activityCIndex = 2;
+        _pIndex = 1;
+        _oIndex = 1;
+        super.initialize(minter, name_, symbol_, baseURI_, schemaURI_, classes_, predicates_);
+    }
+
+
+    function pause() external onlyOwner {
+        _pause();
+    }
+
+    function unpause() external onlyOwner {
+        _unpause();
     }
 
     function duplicatable() public view returns (bool) {
@@ -53,6 +60,12 @@ contract Activity is Ownable, Initializable, AccessControl {
 
     function freeMintable() public view returns (bool) {
         return _freeMintable;
+    }
+
+
+    function setActivity(string memory activityName) external onlyMinter {
+        require(getMinted() == 0, "Activity:can not set activity after minted!");
+        _oIndex = SemanticSBTLogicUpgradeable.addSubject(activityName, _classNames[_activityCIndex], _subjects, _subjectIndex, _classIndex);
     }
 
     function whiteListRange(uint256 offset, uint256 limit) public view returns (address[] memory whiteList_){
@@ -67,9 +80,8 @@ contract Activity is Ownable, Initializable, AccessControl {
         }
     }
 
-
     function addWhiteList(address[] memory addressList) external
-    onlyRole(getRoleAdmin(DEFAULT_ADMIN_ROLE)) {
+    onlyMinter {
         for (uint256 i = 0; i < addressList.length; i++) {
             if (!whiteList[addressList[i]]) {
                 whiteList[addressList[i]] = true;
@@ -77,7 +89,6 @@ contract Activity is Ownable, Initializable, AccessControl {
             }
         }
     }
-
 
     function setDuplicatable(bool duplicatable_) external onlyOwner {
         _duplicatable = duplicatable_;
@@ -89,7 +100,7 @@ contract Activity is Ownable, Initializable, AccessControl {
     }
 
 
-    function mint() external {
+    function mint() external whenNotPaused {
         require(_freeMintable || whiteList[msg.sender], "Activity: permission denied");
         require(_duplicatable || !_mintedSPO[msg.sender][_pIndex][_oIndex], "Activity: already minted");
         _mintedSPO[msg.sender][_pIndex][_oIndex] = true;
@@ -97,9 +108,11 @@ contract Activity is Ownable, Initializable, AccessControl {
         SubjectPO[] memory subjectPO = new SubjectPO[](1);
         subjectPO[0] = SubjectPO(_pIndex, _oIndex);
 
-        _semanticSBT.mint(msg.sender, 0, new IntPO[](0), new StringPO[](0), new AddressPO[](0),
-            subjectPO, new BlankNodePO[](0));
-    }
+        uint256 tokenId = _addEmptyToken(msg.sender, 0);
 
+        _mint(tokenId, msg.sender, new IntPO[](0), new StringPO[](0), new AddressPO[](0),
+            subjectPO, new BlankNodePO[](0));
+
+    }
 
 }

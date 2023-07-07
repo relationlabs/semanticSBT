@@ -1,0 +1,22 @@
+PREFIX : <http://relationlabs.ai/entity/>
+PREFIX p: <http://relationlabs.ai/property/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+###################
+# class
+###################
+:Soul a rdfs:Class ;
+    rdfs:label "Soul" ;
+    rdfs:comment "A soul." .
+
+
+###################
+# predicate
+###################
+p:publicContent a rdf:Property ;
+    rdfs:label "publicContent" ;
+    rdfs:comment "The public content." ;
+    rdfs:domain :Soul ;
+    rdfs:range xsd:string .

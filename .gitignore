@@ -1,0 +1,19 @@
+node_modules
+.env
+.idea
+*.iml
+*.DS_Store
+coverage
+coverage.json
+typechain
+typechain-types
+
+#Hardhat files
+cache
+*artifacts
+*.deps
+
+# brownie
+build
+.pytest_cache
+metadata/network_to_cid.json

@@ -1,0 +1,51 @@
+# exclude SafeMath when calculating test coverage
+# https://eth-brownie.readthedocs.io/en/v1.10.3/config.html#exclude_paths
+dotenv: .env
+project_structure:
+  build: build
+  contracts: contracts
+  interfaces: interfaces
+  reports: reports
+  scripts: brownie_scripts
+  tests: brownie_tests
+reports:
+  exclude_contracts:
+    - SafeMath
+
+networks:
+  default: development
+  development:
+    gas_limit: auto
+    gas_buffer: 1.1
+    gas_price: auto
+    reverting_tx_gas_limit: false
+    default_contract_owner: false
+  kovan:
+    verify: False
+    active_account: "from_test_key"
+  mumbai:
+    verify: False
+    active_account: "from_mumbai_key"
+  goerli:
+    verify: True
+    active_account: "from_goerli_key"
+  relation-test:
+    verify: False
+    active_account: "from_relation_key"
+
+dependencies:
+  - OpenZeppelin/openzeppelin-contracts@4.8.3
+  - OpenZeppelin/openzeppelin-contracts-upgradeable@4.8.3
+compiler:
+  solc:
+    version: "0.8.12"
+    remappings:
+      - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.8.3"
+      - "@openzeppelin/contracts-upgradeable=OpenZeppelin/openzeppelin-contracts-upgradeable@4.8.3/contracts"
+
+wallets:
+  from_test_key: ${PRIVATE_KEY}
+  from_polygon_key: ${PRIVATE_KEY}
+  from_mumbai_key: ${MUMBAI_PRIVATE_KEY}
+  from_goerli_key: ${PRIVATE_KEY}
+  from_relation_key: ${RELATION_TEST_PRIVATE_KEY}

@@ -50,11 +50,6 @@ pragma solidity ^0.8.0;
         uint256[] oIndex;
     }
 
-    struct Class {
-        uint256 index;
-        string name;
-    }
-
     struct Predicate {
         string name;
         FieldType fieldType;
@@ -64,3 +59,4 @@ pragma solidity ^0.8.0;
         string value;
         uint256 cIndex;
     }
+

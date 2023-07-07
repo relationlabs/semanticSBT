@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: MIT
+pragma solidity ^0.8.12;
 
 /**
  * @title Semantic Soulbound Token
  * Note: the EIP-165 identifier for this interface is 0xfbafb698
  */
-interface ISemanticSBT{
+interface ISemanticSBT {
     /**
      * @dev This emits when minting a Semantic Soulbound Token.
      * @param tokenId The identifier for the Semantic Soulbound Token.
@@ -12,7 +13,7 @@ interface ISemanticSBT{
      */
     event CreateRDF (
         uint256 indexed tokenId,
-        string  rdfStatements
+        string rdfStatements
     );
 
 
@@ -23,24 +24,23 @@ interface ISemanticSBT{
      */
     event UpdateRDF (
         uint256 indexed tokenId,
-        string  rdfStatements
+        string rdfStatements
     );
 
 
     /**
-         * @dev This emits when burning or revoking Semantic Soulbound Token.
+     * @dev This emits when burning or revoking Semantic Soulbound Token.
      * @param tokenId The identifier for the Semantic Soulbound Token.
      * @param rdfStatements The RDF statements for the Semantic Soulbound Token. An RDF statement is the statement made by an RDF triple.
      */
     event RemoveRDF (
         uint256 indexed tokenId,
-        string  rdfStatements
+        string rdfStatements
     );
 
     /**
      * @dev Returns the RDF statements of the Semantic Soulbound Token. An RDF statement is the statement made by an RDF triple.
      * @param tokenId The identifier for the Semantic Soulbound Token.
-
      */
     function rdfOf(uint256 tokenId) external view returns (string memory);
 
