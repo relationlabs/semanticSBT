@@ -21,7 +21,7 @@ async function main() {
         }
     });
     const activity = await Activity.deploy();
-    console.log(`$Activity deployed ,contract address: ${activity.address}`);
+    console.log(`Activity deployed ,contract address: ${activity.address}`);
     await activity.deployTransaction.wait();
 
     const ActivityFactory = await hre.ethers.getContractFactory("ActivityFactory");

@@ -39,7 +39,7 @@ contract ActivityFactory {
         return activity;
     }
 
-    function _init(address activityAddress, address owner, string memory contractName, string memory symbol,
+    function _init(address activityAddress, address _owner, string memory contractName, string memory symbol,
                         string memory baseURI, string memory activityName) internal {
         string[] memory class_ = new string[](1);
         class_[0] = ACTIVITY_CLASS_NAME;
@@ -48,8 +48,8 @@ contract ActivityFactory {
         Activity(activityAddress).initialize(address(this), contractName, symbol, baseURI, SCHEMA_URI, class_, predicates_);
         Activity(activityAddress).setActivity(activityName);
         Activity(activityAddress).setMinter(address(this), false);
-        Activity(activityAddress).setMinter(owner, true);
-        Activity(activityAddress).transferOwnership(owner);
+        Activity(activityAddress).setMinter(_owner, true);
+        Activity(activityAddress).transferOwnership(_owner);
     }
 
 }

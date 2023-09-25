@@ -119,8 +119,8 @@ def post(post_content):
 
 def main():
     deploy_content_fully()
-    upgrade()
+    # upgrade()
     call_content()
 
     # Test
-    post("ar://_kDPZpfse1WjDJHjjMyFs_Ran5weTf3h8Q3jpNLpTk0")
+    # post("ar://_kDPZpfse1WjDJHjjMyFs_Ran5weTf3h8Q3jpNLpTk0")

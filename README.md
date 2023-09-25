@@ -39,10 +39,12 @@ brownie test
 
 1. deploy to testnet, take the goerli as example
 
-+ add network
++ add or modify network
 ```shell
 brownie networks list
-brownie networks add polygon goerli host=<RPC_URL> chainid=5 explorer=<EXPORE_URL>
+brownie networks add Ethereum goerli host=<RPC_URL> chainid=5 explorer=<EXPORE_URL>
+# update networks
+brownie networks modify   goerli  host=<NEW_RPC_URL> chainid=5 explorer=<NEW_EXPORE_URL>
 ```
 
 + set network_to_cid
@@ -69,6 +71,7 @@ brownie run brownie_scripts/social/deploy_content.py  --network goerli
 
 # relation
 brownie run brownie_scripts/relation/deploy_relation_profile_nft.py  --network goerli 
+brownie run brownie_scripts/relation/deploy_relation_withdraw.py --network goerli
 ```
 
 
