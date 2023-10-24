@@ -5,6 +5,7 @@ pragma solidity >=0.8.4;
 import "@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 import "../core/SemanticSBTUpgradeable.sol";
 import "../interfaces/social/INameService.sol";
@@ -44,6 +45,11 @@ contract RelationProfileNFT is SemanticSBTUpgradeable, NameService, PausableUpgr
         payable(owner()).transfer(address(this).balance);
     }
 
+    function withdrawToken(address tokenAddress) public {
+        IERC20 token = IERC20(tokenAddress);
+        token.transferFrom(address(this), owner(), token.balanceOf(address(this)));
+    }
+
     function register(address owner, string calldata name, bool resolve) external override(NameService) whenNotPaused onlyMinter returns (uint tokenId) {
         return super._register(owner, name, resolve);
     }
@@ -52,6 +58,17 @@ contract RelationProfileNFT is SemanticSBTUpgradeable, NameService, PausableUpgr
         require(_mintCount == 0 || getMinted() < _mintCount, "NameService: error mint count");
         require(msg.value >= price, "NameService: insufficient value");
         require(_minters[NameServiceLogic.recoverAddress(address(this), msg.sender, name, deadline, _mintCount, price, signature)], "NameService: invalid signature");
+        return super._register(msg.sender, name, false);
+    }
+
+    function register(string calldata name, address tokenAddress, uint256 deadline, uint256 _mintCount, uint256 price, bytes memory signature) external whenNotPaused returns (uint tokenId) {
+        require(_mintCount == 0 || getMinted() < _mintCount, "NameService: error mint count");
+
+        IERC20 token = IERC20(tokenAddress);
+        require(token.balanceOf(msg.sender) >= price, "NameService: not enough token amount");
+        require(_minters[NameServiceLogic.recoverAddress(address(this), msg.sender, name, tokenAddress, deadline, _mintCount, price, signature)], "NameService: invalid signature");
+
+        token.transferFrom(msg.sender, address(this), price);
         return super._register(msg.sender, name, false);
     }
 

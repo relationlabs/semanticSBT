@@ -34,12 +34,13 @@ async function main() {
     });
 
     //upgrade
-    const proxyAddress = "";
+    const proxyAddress = "0x5a493fc3e70ceb5a98842099a03031f006aad0c6";
     await upgrades.upgradeProxy(
     proxyAddress,
         MyContract,
         {unsafeAllowLinkedLibraries: true});
-
+    
+    // await upgrades.forceImport(proxyAddress, MyContract)
 }
 
 // We recommend this pattern to be able to use async/await everywhere
@@ -48,3 +49,15 @@ main().catch((error) => {
     console.error(error);
     process.exitCode = 1;
 });
+
+
+/**
+ * goerli:
+ * npx hardhat run scripts/relation/upgradeRelationProfileNFT.js --network goerli 
+ * npx hardhat verify --network goerli 0x5a493fc3e70ceb5a98842099a03031f006aad0c6
+ */
+
+
+/**
+ * mainnet:
+ */

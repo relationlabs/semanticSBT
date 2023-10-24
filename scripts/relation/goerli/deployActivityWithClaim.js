@@ -6,7 +6,7 @@
 // global scope, and execute the script.
 const hre = require("hardhat");
 const {ethers, upgrades} = require("hardhat");
-const semanticSBTLogic = require("../template/deploySemanticSBTLogic");
+const semanticSBTLogic = require("../../template/deploySemanticSBTLogic");
 
 const name = 'Activity with claim';
 const symbol = 'SEC';
