@@ -47,7 +47,7 @@ contract RelationProfileNFT is SemanticSBTUpgradeable, NameService, PausableUpgr
 
     function withdrawToken(address tokenAddress) public {
         IERC20 token = IERC20(tokenAddress);
-        token.transferFrom(address(this), owner(), token.balanceOf(address(this)));
+        token.transfer(owner(), token.balanceOf(address(this)));
     }
 
     function register(address owner, string calldata name, bool resolve) external override(NameService) whenNotPaused onlyMinter returns (uint tokenId) {

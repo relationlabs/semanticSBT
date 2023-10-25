@@ -34,18 +34,15 @@ async function main() {
     });
 
     //upgrade
-    const proxyAddress = "0x5a493fc3e70ceb5a98842099a03031f006aad0c6";
+    const proxyAddress = "0xB64C5ba4Ec01D1eb7DB8cb9356C24DD733B9E6A9";
     const myContract = await upgrades.upgradeProxy(
     proxyAddress,
         MyContract,
         {unsafeAllowLinkedLibraries: true});
     console.log(myContract.address);
 
-    await (await myContract.setTransferable(true)).wait();
-
-    console.log('setTransferable succeed');
-    await (await myContract.setMinter("0x27546C3D47dECBC5d72C446D9f0593d2141A92F6",true)).wait();
-    console.log('setMinter succeed');
+    // await (await myContract.setTransferable(true)).wait();
+    // await (await myContract.setMinter("0x27546C3D47dECBC5d72C446D9f0593d2141A92F6",true)).wait();
 
     // await upgrades.forceImport(proxyAddress, MyContract)
 }
@@ -60,8 +57,8 @@ main().catch((error) => {
 
 /**
  * goerli:
- * npx hardhat run scripts/relation/upgradeRelationProfileNFT.js --network goerli 
- * npx hardhat verify --network goerli 0x5a493fc3e70ceb5a98842099a03031f006aad0c6
+ * npx hardhat run scripts/relation/goerli/upgradeRelationProfileNFT.js --network goerli 
+ * npx hardhat verify --network goerli 0xB64C5ba4Ec01D1eb7DB8cb9356C24DD733B9E6A9
  */
 
 
