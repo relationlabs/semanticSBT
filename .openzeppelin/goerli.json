@@ -1,7 +1,7 @@
 {
   "manifestVersion": "3.2",
   "admin": {
-    "address": "0x8ceCa1C46124e2b9de16dc06C65d7A3588dCeBCe"
+    "address": "0xc6dAAB3C0b0A2CE8a89fC7f5166a76318B2105E9"
   },
   "proxies": [
     {
@@ -4895,6 +4895,1470 @@
     "ca51e8ac45487f2760d48788b9c8aa703f00caa5eed9159cd1cece1ec8a3bf47": {
       "address": "0x285554C2c77eb8E0d29f7EeCC43807845A5bF3bb",
       "txHash": "0xb04f2d1facc51187deb8aeb65345cef03ab5889483d2a8d5013f736659198eaf",
+      "layout": {
+        "solcVersion": "0.8.12",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:94"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ERC165Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol:41"
+          },
+          {
+            "label": "_name",
+            "offset": 0,
+            "slot": "151",
+            "type": "t_string_storage",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:25"
+          },
+          {
+            "label": "_symbol",
+            "offset": 0,
+            "slot": "152",
+            "type": "t_string_storage",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:28"
+          },
+          {
+            "label": "_owners",
+            "offset": 0,
+            "slot": "153",
+            "type": "t_mapping(t_uint256,t_address)",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:31"
+          },
+          {
+            "label": "_balances",
+            "offset": 0,
+            "slot": "154",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:34"
+          },
+          {
+            "label": "_tokenApprovals",
+            "offset": 0,
+            "slot": "155",
+            "type": "t_mapping(t_uint256,t_address)",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:37"
+          },
+          {
+            "label": "_operatorApprovals",
+            "offset": 0,
+            "slot": "156",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_bool))",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:40"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "157",
+            "type": "t_array(t_uint256)44_storage",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:477"
+          },
+          {
+            "label": "_name",
+            "offset": 0,
+            "slot": "201",
+            "type": "t_string_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:31"
+          },
+          {
+            "label": "_symbol",
+            "offset": 0,
+            "slot": "202",
+            "type": "t_string_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:33"
+          },
+          {
+            "label": "_tokens",
+            "offset": 0,
+            "slot": "203",
+            "type": "t_array(t_struct(SPO)4955_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:35"
+          },
+          {
+            "label": "_burnCount",
+            "offset": 0,
+            "slot": "204",
+            "type": "t_uint256",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:37"
+          },
+          {
+            "label": "_minters",
+            "offset": 0,
+            "slot": "205",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:39"
+          },
+          {
+            "label": "_transferable",
+            "offset": 0,
+            "slot": "206",
+            "type": "t_bool",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:41"
+          },
+          {
+            "label": "_subjects",
+            "offset": 0,
+            "slot": "207",
+            "type": "t_array(t_struct(Subject)4966_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:43"
+          },
+          {
+            "label": "_subjectIndex",
+            "offset": 0,
+            "slot": "208",
+            "type": "t_mapping(t_uint256,t_mapping(t_string_memory_ptr,t_uint256))",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:45"
+          },
+          {
+            "label": "_baseTokenURI",
+            "offset": 0,
+            "slot": "209",
+            "type": "t_string_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:47"
+          },
+          {
+            "label": "schemaURI",
+            "offset": 0,
+            "slot": "210",
+            "type": "t_string_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:49"
+          },
+          {
+            "label": "_classIndex",
+            "offset": 0,
+            "slot": "211",
+            "type": "t_mapping(t_string_memory_ptr,t_uint256)",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:52"
+          },
+          {
+            "label": "_classNames",
+            "offset": 0,
+            "slot": "212",
+            "type": "t_array(t_string_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:53"
+          },
+          {
+            "label": "_predicateIndex",
+            "offset": 0,
+            "slot": "213",
+            "type": "t_mapping(t_string_memory_ptr,t_uint256)",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:55"
+          },
+          {
+            "label": "_predicates",
+            "offset": 0,
+            "slot": "214",
+            "type": "t_array(t_struct(Predicate)4961_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:56"
+          },
+          {
+            "label": "_stringO",
+            "offset": 0,
+            "slot": "215",
+            "type": "t_array(t_string_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:59"
+          },
+          {
+            "label": "_blankNodeO",
+            "offset": 0,
+            "slot": "216",
+            "type": "t_array(t_struct(BlankNodeO)4944_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:60"
+          },
+          {
+            "label": "suffix",
+            "offset": 0,
+            "slot": "217",
+            "type": "t_string_storage",
+            "contract": "NameService",
+            "src": "contracts/template/NameService.sol:23"
+          },
+          {
+            "label": "_ownedResolvedName",
+            "offset": 0,
+            "slot": "218",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "NameService",
+            "src": "contracts/template/NameService.sol:26"
+          },
+          {
+            "label": "_ownerOfResolvedName",
+            "offset": 0,
+            "slot": "219",
+            "type": "t_mapping(t_uint256,t_address)",
+            "contract": "NameService",
+            "src": "contracts/template/NameService.sol:27"
+          },
+          {
+            "label": "_profileURI",
+            "offset": 0,
+            "slot": "220",
+            "type": "t_mapping(t_address,t_string_storage)",
+            "contract": "NameService",
+            "src": "contracts/template/NameService.sol:29"
+          },
+          {
+            "label": "_ownedProfileURI",
+            "offset": 0,
+            "slot": "221",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "NameService",
+            "src": "contracts/template/NameService.sol:30"
+          },
+          {
+            "label": "_paused",
+            "offset": 0,
+            "slot": "222",
+            "type": "t_bool",
+            "contract": "PausableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:29"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "223",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "PausableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:116"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_string_storage)dyn_storage": {
+            "label": "string[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(BlankNodeO)4944_storage)dyn_storage": {
+            "label": "struct BlankNodeO[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(Predicate)4961_storage)dyn_storage": {
+            "label": "struct Predicate[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(SPO)4955_storage)dyn_storage": {
+            "label": "struct SPO[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(Subject)4966_storage)dyn_storage": {
+            "label": "struct Subject[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)44_storage": {
+            "label": "uint256[44]",
+            "numberOfBytes": "1408"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]",
+            "numberOfBytes": "32"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_enum(FieldType)4898": {
+            "label": "enum FieldType",
+            "members": [
+              "INT",
+              "STRING",
+              "ADDRESS",
+              "SUBJECT",
+              "BLANKNODE"
+            ],
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+            "label": "mapping(address => mapping(address => bool))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_string_storage)": {
+            "label": "mapping(address => string)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_string_memory_ptr,t_uint256)": {
+            "label": "mapping(string => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_address)": {
+            "label": "mapping(uint256 => address)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_mapping(t_string_memory_ptr,t_uint256))": {
+            "label": "mapping(uint256 => mapping(string => uint256))",
+            "numberOfBytes": "32"
+          },
+          "t_string_memory_ptr": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(BlankNodeO)4944_storage": {
+            "label": "struct BlankNodeO",
+            "members": [
+              {
+                "label": "pIndex",
+                "type": "t_array(t_uint256)dyn_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "oIndex",
+                "type": "t_array(t_uint256)dyn_storage",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_struct(Predicate)4961_storage": {
+            "label": "struct Predicate",
+            "members": [
+              {
+                "label": "name",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "fieldType",
+                "type": "t_enum(FieldType)4898",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_struct(SPO)4955_storage": {
+            "label": "struct SPO",
+            "members": [
+              {
+                "label": "owner",
+                "type": "t_uint160",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "sIndex",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "pIndex",
+                "type": "t_array(t_uint256)dyn_storage",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "oIndex",
+                "type": "t_array(t_uint256)dyn_storage",
+                "offset": 0,
+                "slot": "3"
+              }
+            ],
+            "numberOfBytes": "128"
+          },
+          "t_struct(Subject)4966_storage": {
+            "label": "struct Subject",
+            "members": [
+              {
+                "label": "value",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "cIndex",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_uint160": {
+            "label": "uint160",
+            "numberOfBytes": "20"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "3cbf57638c7ee19994a950670fb851bd08d0a45ee56902e0e442fdf2f4a231c7": {
+      "address": "0xC47b7b78898A3F9fBA7910D4b72782396fbcd1CB",
+      "txHash": "0x5f8e1859e0921daf5e67807bd9bffcca859c15cd9e6bbb4c7cacff943db183ca",
+      "layout": {
+        "solcVersion": "0.8.12",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:94"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ERC165Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol:41"
+          },
+          {
+            "label": "_name",
+            "offset": 0,
+            "slot": "151",
+            "type": "t_string_storage",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:25"
+          },
+          {
+            "label": "_symbol",
+            "offset": 0,
+            "slot": "152",
+            "type": "t_string_storage",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:28"
+          },
+          {
+            "label": "_owners",
+            "offset": 0,
+            "slot": "153",
+            "type": "t_mapping(t_uint256,t_address)",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:31"
+          },
+          {
+            "label": "_balances",
+            "offset": 0,
+            "slot": "154",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:34"
+          },
+          {
+            "label": "_tokenApprovals",
+            "offset": 0,
+            "slot": "155",
+            "type": "t_mapping(t_uint256,t_address)",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:37"
+          },
+          {
+            "label": "_operatorApprovals",
+            "offset": 0,
+            "slot": "156",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_bool))",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:40"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "157",
+            "type": "t_array(t_uint256)44_storage",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:477"
+          },
+          {
+            "label": "_name",
+            "offset": 0,
+            "slot": "201",
+            "type": "t_string_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:31"
+          },
+          {
+            "label": "_symbol",
+            "offset": 0,
+            "slot": "202",
+            "type": "t_string_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:33"
+          },
+          {
+            "label": "_tokens",
+            "offset": 0,
+            "slot": "203",
+            "type": "t_array(t_struct(SPO)4955_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:35"
+          },
+          {
+            "label": "_burnCount",
+            "offset": 0,
+            "slot": "204",
+            "type": "t_uint256",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:37"
+          },
+          {
+            "label": "_minters",
+            "offset": 0,
+            "slot": "205",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:39"
+          },
+          {
+            "label": "_transferable",
+            "offset": 0,
+            "slot": "206",
+            "type": "t_bool",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:41"
+          },
+          {
+            "label": "_subjects",
+            "offset": 0,
+            "slot": "207",
+            "type": "t_array(t_struct(Subject)4966_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:43"
+          },
+          {
+            "label": "_subjectIndex",
+            "offset": 0,
+            "slot": "208",
+            "type": "t_mapping(t_uint256,t_mapping(t_string_memory_ptr,t_uint256))",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:45"
+          },
+          {
+            "label": "_baseTokenURI",
+            "offset": 0,
+            "slot": "209",
+            "type": "t_string_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:47"
+          },
+          {
+            "label": "schemaURI",
+            "offset": 0,
+            "slot": "210",
+            "type": "t_string_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:49"
+          },
+          {
+            "label": "_classIndex",
+            "offset": 0,
+            "slot": "211",
+            "type": "t_mapping(t_string_memory_ptr,t_uint256)",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:52"
+          },
+          {
+            "label": "_classNames",
+            "offset": 0,
+            "slot": "212",
+            "type": "t_array(t_string_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:53"
+          },
+          {
+            "label": "_predicateIndex",
+            "offset": 0,
+            "slot": "213",
+            "type": "t_mapping(t_string_memory_ptr,t_uint256)",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:55"
+          },
+          {
+            "label": "_predicates",
+            "offset": 0,
+            "slot": "214",
+            "type": "t_array(t_struct(Predicate)4961_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:56"
+          },
+          {
+            "label": "_stringO",
+            "offset": 0,
+            "slot": "215",
+            "type": "t_array(t_string_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:59"
+          },
+          {
+            "label": "_blankNodeO",
+            "offset": 0,
+            "slot": "216",
+            "type": "t_array(t_struct(BlankNodeO)4944_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:60"
+          },
+          {
+            "label": "suffix",
+            "offset": 0,
+            "slot": "217",
+            "type": "t_string_storage",
+            "contract": "NameService",
+            "src": "contracts/template/NameService.sol:23"
+          },
+          {
+            "label": "_ownedResolvedName",
+            "offset": 0,
+            "slot": "218",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "NameService",
+            "src": "contracts/template/NameService.sol:26"
+          },
+          {
+            "label": "_ownerOfResolvedName",
+            "offset": 0,
+            "slot": "219",
+            "type": "t_mapping(t_uint256,t_address)",
+            "contract": "NameService",
+            "src": "contracts/template/NameService.sol:27"
+          },
+          {
+            "label": "_profileURI",
+            "offset": 0,
+            "slot": "220",
+            "type": "t_mapping(t_address,t_string_storage)",
+            "contract": "NameService",
+            "src": "contracts/template/NameService.sol:29"
+          },
+          {
+            "label": "_ownedProfileURI",
+            "offset": 0,
+            "slot": "221",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "NameService",
+            "src": "contracts/template/NameService.sol:30"
+          },
+          {
+            "label": "_paused",
+            "offset": 0,
+            "slot": "222",
+            "type": "t_bool",
+            "contract": "PausableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:29"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "223",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "PausableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:116"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_string_storage)dyn_storage": {
+            "label": "string[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(BlankNodeO)4944_storage)dyn_storage": {
+            "label": "struct BlankNodeO[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(Predicate)4961_storage)dyn_storage": {
+            "label": "struct Predicate[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(SPO)4955_storage)dyn_storage": {
+            "label": "struct SPO[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(Subject)4966_storage)dyn_storage": {
+            "label": "struct Subject[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)44_storage": {
+            "label": "uint256[44]",
+            "numberOfBytes": "1408"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]",
+            "numberOfBytes": "32"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_enum(FieldType)4898": {
+            "label": "enum FieldType",
+            "members": [
+              "INT",
+              "STRING",
+              "ADDRESS",
+              "SUBJECT",
+              "BLANKNODE"
+            ],
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+            "label": "mapping(address => mapping(address => bool))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_string_storage)": {
+            "label": "mapping(address => string)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_string_memory_ptr,t_uint256)": {
+            "label": "mapping(string => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_address)": {
+            "label": "mapping(uint256 => address)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_mapping(t_string_memory_ptr,t_uint256))": {
+            "label": "mapping(uint256 => mapping(string => uint256))",
+            "numberOfBytes": "32"
+          },
+          "t_string_memory_ptr": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(BlankNodeO)4944_storage": {
+            "label": "struct BlankNodeO",
+            "members": [
+              {
+                "label": "pIndex",
+                "type": "t_array(t_uint256)dyn_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "oIndex",
+                "type": "t_array(t_uint256)dyn_storage",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_struct(Predicate)4961_storage": {
+            "label": "struct Predicate",
+            "members": [
+              {
+                "label": "name",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "fieldType",
+                "type": "t_enum(FieldType)4898",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_struct(SPO)4955_storage": {
+            "label": "struct SPO",
+            "members": [
+              {
+                "label": "owner",
+                "type": "t_uint160",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "sIndex",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "pIndex",
+                "type": "t_array(t_uint256)dyn_storage",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "oIndex",
+                "type": "t_array(t_uint256)dyn_storage",
+                "offset": 0,
+                "slot": "3"
+              }
+            ],
+            "numberOfBytes": "128"
+          },
+          "t_struct(Subject)4966_storage": {
+            "label": "struct Subject",
+            "members": [
+              {
+                "label": "value",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "cIndex",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_uint160": {
+            "label": "uint160",
+            "numberOfBytes": "20"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "1d84ba5b1ab0eff1a04394af6e677942cb424390e3480cc3fd82909ddf89315f": {
+      "address": "0x77B32555840648f3CE38E6c9F5d95d9C54c32F9C",
+      "txHash": "0x81dc7ceba3f377a66df5e225120b35fd2344a1302f96cc1f60447c3a45d533d5",
+      "layout": {
+        "solcVersion": "0.8.12",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:94"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ERC165Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol:41"
+          },
+          {
+            "label": "_name",
+            "offset": 0,
+            "slot": "151",
+            "type": "t_string_storage",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:25"
+          },
+          {
+            "label": "_symbol",
+            "offset": 0,
+            "slot": "152",
+            "type": "t_string_storage",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:28"
+          },
+          {
+            "label": "_owners",
+            "offset": 0,
+            "slot": "153",
+            "type": "t_mapping(t_uint256,t_address)",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:31"
+          },
+          {
+            "label": "_balances",
+            "offset": 0,
+            "slot": "154",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:34"
+          },
+          {
+            "label": "_tokenApprovals",
+            "offset": 0,
+            "slot": "155",
+            "type": "t_mapping(t_uint256,t_address)",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:37"
+          },
+          {
+            "label": "_operatorApprovals",
+            "offset": 0,
+            "slot": "156",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_bool))",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:40"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "157",
+            "type": "t_array(t_uint256)44_storage",
+            "contract": "ERC721Upgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol:477"
+          },
+          {
+            "label": "_name",
+            "offset": 0,
+            "slot": "201",
+            "type": "t_string_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:31"
+          },
+          {
+            "label": "_symbol",
+            "offset": 0,
+            "slot": "202",
+            "type": "t_string_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:33"
+          },
+          {
+            "label": "_tokens",
+            "offset": 0,
+            "slot": "203",
+            "type": "t_array(t_struct(SPO)4955_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:35"
+          },
+          {
+            "label": "_burnCount",
+            "offset": 0,
+            "slot": "204",
+            "type": "t_uint256",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:37"
+          },
+          {
+            "label": "_minters",
+            "offset": 0,
+            "slot": "205",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:39"
+          },
+          {
+            "label": "_transferable",
+            "offset": 0,
+            "slot": "206",
+            "type": "t_bool",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:41"
+          },
+          {
+            "label": "_subjects",
+            "offset": 0,
+            "slot": "207",
+            "type": "t_array(t_struct(Subject)4966_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:43"
+          },
+          {
+            "label": "_subjectIndex",
+            "offset": 0,
+            "slot": "208",
+            "type": "t_mapping(t_uint256,t_mapping(t_string_memory_ptr,t_uint256))",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:45"
+          },
+          {
+            "label": "_baseTokenURI",
+            "offset": 0,
+            "slot": "209",
+            "type": "t_string_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:47"
+          },
+          {
+            "label": "schemaURI",
+            "offset": 0,
+            "slot": "210",
+            "type": "t_string_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:49"
+          },
+          {
+            "label": "_classIndex",
+            "offset": 0,
+            "slot": "211",
+            "type": "t_mapping(t_string_memory_ptr,t_uint256)",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:52"
+          },
+          {
+            "label": "_classNames",
+            "offset": 0,
+            "slot": "212",
+            "type": "t_array(t_string_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:53"
+          },
+          {
+            "label": "_predicateIndex",
+            "offset": 0,
+            "slot": "213",
+            "type": "t_mapping(t_string_memory_ptr,t_uint256)",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:55"
+          },
+          {
+            "label": "_predicates",
+            "offset": 0,
+            "slot": "214",
+            "type": "t_array(t_struct(Predicate)4961_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:56"
+          },
+          {
+            "label": "_stringO",
+            "offset": 0,
+            "slot": "215",
+            "type": "t_array(t_string_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:59"
+          },
+          {
+            "label": "_blankNodeO",
+            "offset": 0,
+            "slot": "216",
+            "type": "t_array(t_struct(BlankNodeO)4944_storage)dyn_storage",
+            "contract": "SemanticSBTUpgradeable",
+            "src": "contracts/core/SemanticSBTUpgradeable.sol:60"
+          },
+          {
+            "label": "suffix",
+            "offset": 0,
+            "slot": "217",
+            "type": "t_string_storage",
+            "contract": "NameService",
+            "src": "contracts/template/NameService.sol:23"
+          },
+          {
+            "label": "_ownedResolvedName",
+            "offset": 0,
+            "slot": "218",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "NameService",
+            "src": "contracts/template/NameService.sol:26"
+          },
+          {
+            "label": "_ownerOfResolvedName",
+            "offset": 0,
+            "slot": "219",
+            "type": "t_mapping(t_uint256,t_address)",
+            "contract": "NameService",
+            "src": "contracts/template/NameService.sol:27"
+          },
+          {
+            "label": "_profileURI",
+            "offset": 0,
+            "slot": "220",
+            "type": "t_mapping(t_address,t_string_storage)",
+            "contract": "NameService",
+            "src": "contracts/template/NameService.sol:29"
+          },
+          {
+            "label": "_ownedProfileURI",
+            "offset": 0,
+            "slot": "221",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "NameService",
+            "src": "contracts/template/NameService.sol:30"
+          },
+          {
+            "label": "_paused",
+            "offset": 0,
+            "slot": "222",
+            "type": "t_bool",
+            "contract": "PausableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:29"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "223",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "PausableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:116"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_string_storage)dyn_storage": {
+            "label": "string[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(BlankNodeO)4944_storage)dyn_storage": {
+            "label": "struct BlankNodeO[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(Predicate)4961_storage)dyn_storage": {
+            "label": "struct Predicate[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(SPO)4955_storage)dyn_storage": {
+            "label": "struct SPO[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_struct(Subject)4966_storage)dyn_storage": {
+            "label": "struct Subject[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)44_storage": {
+            "label": "uint256[44]",
+            "numberOfBytes": "1408"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]",
+            "numberOfBytes": "32"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_enum(FieldType)4898": {
+            "label": "enum FieldType",
+            "members": [
+              "INT",
+              "STRING",
+              "ADDRESS",
+              "SUBJECT",
+              "BLANKNODE"
+            ],
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+            "label": "mapping(address => mapping(address => bool))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_string_storage)": {
+            "label": "mapping(address => string)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_string_memory_ptr,t_uint256)": {
+            "label": "mapping(string => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_address)": {
+            "label": "mapping(uint256 => address)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_mapping(t_string_memory_ptr,t_uint256))": {
+            "label": "mapping(uint256 => mapping(string => uint256))",
+            "numberOfBytes": "32"
+          },
+          "t_string_memory_ptr": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(BlankNodeO)4944_storage": {
+            "label": "struct BlankNodeO",
+            "members": [
+              {
+                "label": "pIndex",
+                "type": "t_array(t_uint256)dyn_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "oIndex",
+                "type": "t_array(t_uint256)dyn_storage",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_struct(Predicate)4961_storage": {
+            "label": "struct Predicate",
+            "members": [
+              {
+                "label": "name",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "fieldType",
+                "type": "t_enum(FieldType)4898",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_struct(SPO)4955_storage": {
+            "label": "struct SPO",
+            "members": [
+              {
+                "label": "owner",
+                "type": "t_uint160",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "sIndex",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "pIndex",
+                "type": "t_array(t_uint256)dyn_storage",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "oIndex",
+                "type": "t_array(t_uint256)dyn_storage",
+                "offset": 0,
+                "slot": "3"
+              }
+            ],
+            "numberOfBytes": "128"
+          },
+          "t_struct(Subject)4966_storage": {
+            "label": "struct Subject",
+            "members": [
+              {
+                "label": "value",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "cIndex",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_uint160": {
+            "label": "uint160",
+            "numberOfBytes": "20"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "3b20c458d5bb59997558574ac83b3d574f3fd2fd40fe9d902be0438c7df08560": {
+      "address": "0xdE37610e74853e9019734Ba8e21b6E7f422578fE",
+      "txHash": "0x588dd6cc7e7cf9b4903f4883f56dbb72bee2a88ccec4fd977de018abd7e6f086",
       "layout": {
         "solcVersion": "0.8.12",
         "storage": [
