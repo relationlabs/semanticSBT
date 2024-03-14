@@ -51,10 +51,15 @@ module.exports = {
       url: `https://endpoints.omniatech.io/v1/bsc/testnet/public`,
       accounts: [process.env.BSC_TEST_PRIVATE_KEY],
     },
+    base: {
+      url: `https://base.llamarpc.com`,
+      accounts: [process.env.BASE_PRIVATE_KEY],
+    },
   },
   etherscan: {
     apiKey: {
       polygon: process.env.POLYGONSCAN_TOKEN,
+      mumbai: process.env.POLYGONSCAN_TOKEN,
       goerli: process.env.ETHERSCAN_TOKEN,
     },
     customChains: [
@@ -72,6 +77,22 @@ module.exports = {
         urls: {
           apiURL: 'https:/api.etherscan.io/api',
           browserURL: 'https://etherscan.io/',
+        },
+      },
+      {
+        network: 'polygon',
+        chainId: 137,
+        urls: {
+          apiURL: 'https://api.polygonscan.com/api',
+          browserURL: 'https://polygonscan.com/',
+        },
+      },
+      {
+        network: 'mumbai',
+        chainId: 80001,
+        urls: {
+          apiURL: 'https://api-testnet.polygonscan.com/api',
+          browserURL: 'https://mumbai.polygonscan.com/',
         },
       },
       {
