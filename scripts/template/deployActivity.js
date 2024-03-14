@@ -6,32 +6,40 @@
 // global scope, and execute the script.
 const hre = require("hardhat");
 
-const name = 'Sonorus Rhythm SBT';
-const symbol = 'SRSBT';
+const name = 'Relation Valentine\'s Day 2024';
+const symbol = 'RV2024SBT';
 let baseURI = 'https://sbt0.io/sbt/polygon/';
 const schemaURI = 'ar://pEaI9o8moBFof5IkOSq1qNnl8RuP0edn2BFD1q6vdE4';
 const class_ = ["Activity"];
 const predicate_ = [["participant", 3]];
 
-const myActivity = "SonorusRhythm";
+const myActivity = "Relation_Valentine_2024";
 const whiteList = ["0x0000000000000000000000000000000000000011","0x0000000000000000000000000000000000000022"]
 
 async function main() {
 
     const [owner] = await ethers.getSigners();
+    const net = await ethers.provider.detectNetwork();
 
-    // const SemanticSBTLogic = await hre.ethers.getContractFactory("SemanticSBTLogicUpgradeable");
-    // const semanticSBTLogicLibrary = await SemanticSBTLogic.deploy();
-    // console.log(`SemanticSBTLogic deployed ,contract address: ${semanticSBTLogicLibrary.address}`);
-
-    // polygon: SemanticSBTLogic deployed ,contract address: 0xb6b10404e70Be418e1f0222CFDDf3692fF0d28B8
-    //mumbai: SemanticSBTLogic deployed ,contract address: 0xB9D0144c60Cfc70f17958Dc7b190908aC7b25091
-    //base SemanticSBTLogic deployed ,contract address: 0x34a336b5F55625eC28B07c6e2334560BE9A12d0e
+    let semanticSBTLogicAddress;
+    if (net.chainId == 137 && net.name == 'matic') {
+        // polygon: SemanticSBTLogic deployed ,contract address: 0xb6b10404e70Be418e1f0222CFDDf3692fF0d28B8
+        semanticSBTLogicAddress = '0xb6b10404e70Be418e1f0222CFDDf3692fF0d28B8'
+    } else if (net.chainId == 8453) {
+        //base SemanticSBTLogic deployed ,contract address: 0x34a336b5F55625eC28B07c6e2334560BE9A12d0e
+        semanticSBTLogicAddress = '0x34a336b5F55625eC28B07c6e2334560BE9A12d0e'
+    } else {
+        const SemanticSBTLogic = await hre.ethers.getContractFactory("SemanticSBTLogicUpgradeable");
+        const semanticSBTLogicLibrary = await SemanticSBTLogic.deploy();
+        semanticSBTLogicAddress = semanticSBTLogicLibrary.address;
+        console.log(`SemanticSBTLogic deployed ,contract address: ${semanticSBTLogicLibrary.address}`);
+    }
+    console.log("<<<<<<<<semanticSBTLogicAddress：", semanticSBTLogicAddress);
 
     const contractName = "Activity";
     const MyContract = await hre.ethers.getContractFactory(contractName, {
         libraries: {
-            SemanticSBTLogicUpgradeable: "0xb6b10404e70Be418e1f0222CFDDf3692fF0d28B8",
+            SemanticSBTLogicUpgradeable: semanticSBTLogicAddress,
         }
     });
     const myContract = await MyContract.deploy();
@@ -60,6 +68,8 @@ async function main() {
 
     await (await myContract.setFreeMintable(true)).wait();
     console.log(`setFreeMintable successfully!`);
+
+    console.log(`The contract name is: ${await myContract.name()}`);
 
     // await (await myContract.mint()).wait();
     // console.log(`${owner.address} participant the activity successfully!`);
