@@ -6,14 +6,14 @@
 // global scope, and execute the script.
 const hre = require("hardhat");
 
-const name = 'Relation Valentine\'s Day 2024';
-const symbol = 'RV2024SBT';
-let baseURI = 'https://sbt0.io/sbt/polygon/';
+const name = '2024 Ethereum Upgrade: Dencun';
+const symbol = 'EUD2024SBT';
+let baseURI = 'https://sbt0.io/sbt/base/';
 const schemaURI = 'ar://pEaI9o8moBFof5IkOSq1qNnl8RuP0edn2BFD1q6vdE4';
 const class_ = ["Activity"];
 const predicate_ = [["participant", 3]];
 
-const myActivity = "Relation_Valentine_2024";
+const myActivity = "Ethereum_Upgrade_Dencun_2024";
 const whiteList = ["0x0000000000000000000000000000000000000011","0x0000000000000000000000000000000000000022"]
 
 async function main() {
@@ -26,13 +26,15 @@ async function main() {
         // polygon: SemanticSBTLogic deployed ,contract address: 0xb6b10404e70Be418e1f0222CFDDf3692fF0d28B8
         semanticSBTLogicAddress = '0xb6b10404e70Be418e1f0222CFDDf3692fF0d28B8'
     } else if (net.chainId == 8453) {
+        console.log(`deploy activity contract to base`)
         //base SemanticSBTLogic deployed ,contract address: 0x34a336b5F55625eC28B07c6e2334560BE9A12d0e
         semanticSBTLogicAddress = '0x34a336b5F55625eC28B07c6e2334560BE9A12d0e'
     } else {
+        console.log('>>>>>start deploy semantic sbt logic')
         const SemanticSBTLogic = await hre.ethers.getContractFactory("SemanticSBTLogicUpgradeable");
         const semanticSBTLogicLibrary = await SemanticSBTLogic.deploy();
         semanticSBTLogicAddress = semanticSBTLogicLibrary.address;
-        console.log(`SemanticSBTLogic deployed ,contract address: ${semanticSBTLogicLibrary.address}`);
+        console.log(`<<<<<SemanticSBTLogic deployed ,contract address: ${semanticSBTLogicLibrary.address}`);
     }
     console.log("<<<<<<<<semanticSBTLogicAddress：", semanticSBTLogicAddress);
 
@@ -42,6 +44,7 @@ async function main() {
             SemanticSBTLogicUpgradeable: semanticSBTLogicAddress,
         }
     });
+    console.log(`start deploy contract with logic address: ${semanticSBTLogicAddress}`)
     const myContract = await MyContract.deploy();
     console.log(`Activity deployed ,contract address: ${myContract.address}`);
     await myContract.deployTransaction.wait();

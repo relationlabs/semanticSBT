@@ -52,8 +52,12 @@ module.exports = {
       accounts: [process.env.BSC_TEST_PRIVATE_KEY],
     },
     base: {
-      url: `https://base.llamarpc.com`,
+      url: `https://base-mainnet.g.alchemy.com/v2/${process.env.WEB3_ALCHEMY_KEY}`,
       accounts: [process.env.BASE_PRIVATE_KEY],
+    },
+    optimistic: {
+      url: `https://opt-mainnet.g.alchemy.com/v2/${process.env.WEB3_ALCHEMY_KEY}`,
+      accounts: [process.env.OP_PRIVATE_KEY],
     },
   },
   etherscan: {
