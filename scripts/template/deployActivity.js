@@ -6,20 +6,22 @@
 // global scope, and execute the script.
 const hre = require("hardhat");
 
-const name = '2024 Ethereum Upgrade: Dencun';
-const symbol = 'EUD2024SBT';
-let baseURI = 'https://sbt0.io/sbt/base/';
+const name = 'ZKFair: Dragon Slayer';
+const symbol = 'ZKFDSSBT';
+let baseURI = 'https://sbt0.io/sbt/op/';
 const schemaURI = 'ar://pEaI9o8moBFof5IkOSq1qNnl8RuP0edn2BFD1q6vdE4';
 const class_ = ["Activity"];
 const predicate_ = [["participant", 3]];
 
-const myActivity = "Ethereum_Upgrade_Dencun_2024";
+const myActivity = "ZKFair_Dragon_Slayer";
 const whiteList = ["0x0000000000000000000000000000000000000011","0x0000000000000000000000000000000000000022"]
 
 async function main() {
 
     const [owner] = await ethers.getSigners();
     const net = await ethers.provider.detectNetwork();
+
+    console.log(`deploy to chainId: ${net.chainId}, name ${net.name}`)
 
     let semanticSBTLogicAddress;
     if (net.chainId == 137 && net.name == 'matic') {
@@ -29,6 +31,10 @@ async function main() {
         console.log(`deploy activity contract to base`)
         //base SemanticSBTLogic deployed ,contract address: 0x34a336b5F55625eC28B07c6e2334560BE9A12d0e
         semanticSBTLogicAddress = '0x34a336b5F55625eC28B07c6e2334560BE9A12d0e'
+    } else if (net.chainId == 10) {
+        console.log(`deploy activity contract to optimistic`)
+        //optimistic semanticSBTLogicAddress： 0x037a36e32d90238939a6bc915dDE10961bAe2803
+        semanticSBTLogicAddress = '0x037a36e32d90238939a6bc915dDE10961bAe2803'
     } else {
         console.log('>>>>>start deploy semantic sbt logic')
         const SemanticSBTLogic = await hre.ethers.getContractFactory("SemanticSBTLogicUpgradeable");
