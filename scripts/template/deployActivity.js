@@ -6,14 +6,14 @@
 // global scope, and execute the script.
 const hre = require("hardhat");
 
-const name = 'ZKFair: Dragon Slayer';
-const symbol = 'ZKFDSSBT';
-let baseURI = 'https://sbt0.io/sbt/op/';
+const name = '2024 Good Friday & Easter';
+const symbol = 'GFE2024SBT';
+let baseURI = 'https://sbt0.io/sbt/arb/';
 const schemaURI = 'ar://pEaI9o8moBFof5IkOSq1qNnl8RuP0edn2BFD1q6vdE4';
 const class_ = ["Activity"];
 const predicate_ = [["participant", 3]];
 
-const myActivity = "ZKFair_Dragon_Slayer";
+const myActivity = "2024Good_Friday_Easter";
 const whiteList = ["0x0000000000000000000000000000000000000011","0x0000000000000000000000000000000000000022"]
 
 async function main() {
@@ -35,6 +35,14 @@ async function main() {
         console.log(`deploy activity contract to optimistic`)
         //optimistic semanticSBTLogicAddress： 0x037a36e32d90238939a6bc915dDE10961bAe2803
         semanticSBTLogicAddress = '0x037a36e32d90238939a6bc915dDE10961bAe2803'
+    } else if (net.chainId == 11155420) {
+        console.log(`deploy activity contract to optimismSepolia`)
+        //optimismSepolia semanticSBTLogicAddress： 0x71758520EB293c1C5c91E87f9E82708C2441807E
+        semanticSBTLogicAddress = '0x71758520EB293c1C5c91E87f9E82708C2441807E'
+    } else if (net.chainId == 42161) {
+        console.log(`deploy activity contract to arbitrum`)
+        //arbitrum SemanticSBTLogic deployed ,contract address: 0x61ba2Cf5A210eD55C2B4A542d8b58b9cb36F7d54
+        semanticSBTLogicAddress = '0x61ba2Cf5A210eD55C2B4A542d8b58b9cb36F7d54'
     } else {
         console.log('>>>>>start deploy semantic sbt logic')
         const SemanticSBTLogic = await hre.ethers.getContractFactory("SemanticSBTLogicUpgradeable");
