@@ -8,12 +8,12 @@ const hre = require("hardhat");
 const {ethers, upgrades} = require("hardhat");
 const semanticSBTLogic = require("./deploySemanticSBTLogic");
 
-const name = 'Relation Content';
-const symbol = 'SBT';
+const name = 'Game 2048';
+const symbol = '2048SBT';
 const baseURI = '';
 const schemaURI = 'ar://HENWTh3esXyAeLe1Yg_BrBOHhW-CcDQoU5inaAx-yNs';
 const class_ = [];
-const predicate_ = [["publicContent", 1]];
+const predicate_ = [["score", 1]];
 
 
 async function deployContentWithSign(semanticSBTLogicLibraryAddress) {
@@ -79,6 +79,7 @@ async function upgrade(semanticSBTLogicAddress,proxyAddress){
 
 async function main() {
     const [owner] = await ethers.getSigners();
+    console.log("deployer address：", owner.address);
 
     const semanticSBTLogicAddress = await semanticSBTLogic.deploy()
     const contentWithSignAddress = await deployContentWithSign(semanticSBTLogicAddress)

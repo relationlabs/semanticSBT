@@ -59,6 +59,16 @@ module.exports = {
       url: `https://opt-mainnet.g.alchemy.com/v2/${process.env.WEB3_ALCHEMY_KEY}`,
       accounts: [process.env.OP_PRIVATE_KEY],
     },
+    optimismSepolia: {
+      chainId: 11155420,
+      url: `https://opt-sepolia.g.alchemy.com/v2/${process.env.WEB3_ALCHEMY_KEY}`,
+      accounts: [process.env.OP_SEPOLIA_PRIVATE_KEY],
+    },
+    arbitrum: {
+      chainId: 42161,
+      url: `https://arb-mainnet.g.alchemy.com/v2/${process.env.WEB3_ALCHEMY_KEY}`,
+      accounts: [process.env.ARB_PRIVATE_KEY],
+    }
   },
   etherscan: {
     apiKey: {
