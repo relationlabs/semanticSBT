@@ -8,12 +8,12 @@ const hre = require("hardhat");
 const {ethers, upgrades} = require("hardhat");
 const semanticSBTLogic = require("./deploySemanticSBTLogic");
 
-const name = 'Game 2048';
-const symbol = '2048SBT';
+const name = 'X-plore AI Journey with Relation';
+const symbol = 'AIJRSBT';
 const baseURI = '';
-const schemaURI = 'ar://HENWTh3esXyAeLe1Yg_BrBOHhW-CcDQoU5inaAx-yNs';
+const schemaURI = 'ar://pa9f1M_YAgFJqww56D17ALMVA8qrjYR4N9wB4Ln5iuk';
 const class_ = [];
-const predicate_ = [["score", 1]];
+const predicate_ = [["imagine", 1]];
 
 
 async function deployContentWithSign(semanticSBTLogicLibraryAddress) {

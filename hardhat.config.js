@@ -68,6 +68,16 @@ module.exports = {
       chainId: 42161,
       url: `https://arb-mainnet.g.alchemy.com/v2/${process.env.WEB3_ALCHEMY_KEY}`,
       accounts: [process.env.ARB_PRIVATE_KEY],
+    },
+    XLayer: {
+      chainId: 196,
+      url: `https://rpc.xlayer.tech`,
+      accounts: [process.env.XLAYER_PRIVATE_KEY],
+    },
+    XLayer_testnet: {
+      chainId: 195,
+      url: `https://testrpc.xlayer.tech`,
+      accounts: [process.env.XLAYER_TESTNET_PRIVATE_KEY],
     }
   },
   etherscan: {
